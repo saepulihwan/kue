@@ -11,7 +11,13 @@
 
     <style>
         :root { --gold: #d4a373; --dark: #1e1e1e; }
-        html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+        html { 
+    scroll-padding-top: 70px; 
+    }
+    /* Biarkan smooth scroll hanya di laptop, di HP kita buat instan agar tidak lag */
+    @media (min-width: 768px) {
+    html { scroll-behavior: smooth; }
+    }
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), 
@@ -56,6 +62,29 @@
                 border-radius: 0 0 20px 20px;
             }
         }
+        /* Khusus Layar HP (Lebar di bawah 768px) */
+@media (max-width: 767px) {
+    /* Perkecil jarak kosong (padding) yang terlalu memakan tempat */
+    section, .footer-premium, .py-5 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    /* Atur teks footer agar ukurannya pas di HP */
+    .footer-premium h4, .footer-premium h5 {
+        font-size: 1.2rem !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .footer-premium p, .footer-premium a {
+        font-size: 0.9rem !important;
+    }
+
+    /* Jika ada peta atau form di bawah yang terlalu lebar */
+    .footer-premium .row > div {
+        margin-bottom: 20px;
+    }
+}
     </style>
 </head>
 <body>
@@ -74,9 +103,9 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto text-center mt-3 mt-lg-0">
-                        <li class="nav-item px-3"><a class="nav-link" href="#home">HOME</a></li>
-                        <li class="nav-item px-3"><a class="nav-link" href="#produk">PRODUK</a></li>
-                        <li class="nav-item px-3"><a class="nav-link" href="#kontak">KONTAK</a></li>
+                        <a class="nav-link" href="#home" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">HOME</a>
+                        <a class="nav-link" href="#produk" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">PRODUK</a>
+                        <a class="nav-link" href="#kontak" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">KONTAK</a>
                     </ul>
                 </div>
             </div>
