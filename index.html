@@ -237,17 +237,21 @@
 <body>
 
     <div class="main-content">
-        <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="#home"><i class="fas fa-cookie-bite me-2"></i>SWEET PASTRY</a>
-                <div class="d-flex align-items-center order-lg-last gap-2">
-                    <button class="btn btn-warning rounded-pill px-4 fw-bold shadow-sm style-btn-cart" onclick="bukaKasir()" style="background-color: var(--gold); border: none; color: #fff;">
-                        <i class="fas fa-shopping-basket me-1"></i> <span id="cart-count" class="badge bg-danger ms-1">0</span>
+       <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
+            <div class="container d-flex align-items-center justify-content-between">
+                <a class="navbar-brand mb-0" href="#home">
+                    <i class="fas fa-cookie-bite me-2"></i>SWEET PASTRY
+                </a>
+                
+                <div class="d-flex align-items-center gap-2 ms-auto order-lg-last">
+                    <button class="btn btn-warning rounded-pill px-3 py-1 fw-bold shadow-sm" onclick="bukaKasir()" style="background-color: var(--gold); border: none; color: #fff; font-size: 0.85rem;">
+                        <i class="fas fa-shopping-basket"></i> <span id="cart-count" class="badge bg-danger ms-1">0</span>
                     </button>
-                    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                        <span class="navbar-toggler-icon"></span>
+                    <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon" style="width: 1.25rem; height: 1.25rem;"></span>
                     </button>
                 </div>
+                
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto text-center mt-2 mt-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#home">HOME</a></li>
