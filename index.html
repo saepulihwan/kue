@@ -493,20 +493,8 @@
         async function prosesKeNota() {
             const metode = document.querySelector('input[name="metode"]:checked').value;
 
-            try {
-                await fetch('/api/pesan', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        total: totalBelanjaSekarang,
-                        metode: metode,
-                        items: keranjang
-                    })
-                });
-                console.log("Pesanan tersimpan di database.");
-            } catch (err) {
-                console.error("Gagal simpan database:", err);
-            }
+            // KODE FETCH KE /api/pesan KITA HAPUS/NONAKTIFKAN AGAR VERCEL TIDAK EROR 500
+            console.log("Memproses nota pesanan...");
 
             mKasir.hide();
             
