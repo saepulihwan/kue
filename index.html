@@ -12,12 +12,12 @@
     <style>
         :root { --gold: #d4a373; --dark: #1e1e1e; }
         html { 
-    scroll-padding-top: 70px; 
-    }
-    /* Biarkan smooth scroll hanya di laptop, di HP kita buat instan agar tidak lag */
-    @media (min-width: 768px) {
-    html { scroll-behavior: smooth; }
-    }
+            scroll-padding-top: 70px; 
+        }
+        /* Biarkan smooth scroll hanya di laptop, di HP kita buat instan agar tidak lag */
+        @media (min-width: 768px) {
+            html { scroll-behavior: smooth; }
+        }
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), 
@@ -54,7 +54,7 @@
         .nota-box { border: 2px dashed #ccc; padding: 25px; background: #fff; font-family: 'Courier New', monospace; border-radius: 10px; }
         .ls-2 { letter-spacing: 3px; }
 
-        /* PERBAIKAN MOBILE: Mencegah menu menutupi konten terlalu jauh */
+        /* PERBAIKAN MOBILE NAVBAR: Mencegah menu menutupi konten terlalu jauh */
         @media (max-width: 991px) {
             .navbar-collapse {
                 background: rgba(30,30,30,1);
@@ -62,29 +62,42 @@
                 border-radius: 0 0 20px 20px;
             }
         }
-        /* Khusus Layar HP (Lebar di bawah 768px) */
-@media (max-width: 767px) {
-    /* Perkecil jarak kosong (padding) yang terlalu memakan tempat */
-    section, .footer-premium, .py-5 {
-        padding-top: 2rem !important;
-        padding-bottom: 2rem !important;
-    }
-    
-    /* Atur teks footer agar ukurannya pas di HP */
-    .footer-premium h4, .footer-premium h5 {
-        font-size: 1.2rem !important;
-        margin-bottom: 10px !important;
-    }
-    
-    .footer-premium p, .footer-premium a {
-        font-size: 0.9rem !important;
-    }
-
-    /* Jika ada peta atau form di bawah yang terlalu lebar */
-    .footer-premium .row > div {
-        margin-bottom: 20px;
-    }
-}
+        
+        /* PERBAIKAN TAMPILAN BAWAH DI HP (Lebar di bawah 768px) */
+        @media (max-width: 767px) {
+            .footer-premium {
+                padding: 40px 20px 20px !important;
+                border-radius: 30px 30px 0 0 !important;
+            }
+            /* Membuat kolom Tentang Toko memakan ruang penuh di atas */
+            .footer-premium .col-tentang {
+                width: 100% !important;
+                text-align: center !important;
+                margin-bottom: 30px;
+            }
+            .footer-premium .col-tentang .d-flex {
+                justify-content: center !important;
+            }
+            /* Membuat kolom Jam & Lokasi sejajar kanan-kiri (tidak menumpuk vertikal kaku) */
+            .footer-premium .col-jam, 
+            .footer-premium .col-lokasi {
+                width: 50% !important;
+                margin-bottom: 20px;
+            }
+            .footer-premium h6 {
+                font-size: 0.95rem !important;
+                margin-bottom: 12px !important;
+            }
+            .footer-premium p, 
+            .footer-premium li {
+                font-size: 0.85rem !important;
+            }
+            .btn-lokasi {
+                display: inline-block;
+                width: 100%;
+                margin-top: 8px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -164,25 +177,30 @@
 
     <footer class="footer-premium" id="kontak">
         <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-4 text-center text-md-start">
-                    <h4 class="navbar-brand mb-4 d-block"><i class="fas fa-cookie-bite me-2"></i>TOKO KUE</h4>
-                    <p class="small text-secondary">Bolu premium dibuat fresh setiap hari untuk momen spesial Anda.</p>
-                    <div class="d-flex justify-content-center justify-content-md-start gap-3 mt-3">
+            <div class="row g-4">
+                <div class="col-lg-4 col-tentang text-md-start">
+                    <h4 class="navbar-brand mb-3 d-block" style="font-size: 1.6rem;"><i class="fas fa-cookie-bite me-2"></i>TOKO KUE</h4>
+                    <p class="small text-secondary mb-3">Bolu premium dibuat fresh setiap hari untuk momen spesial Anda.</p>
+                    <div class="d-flex gap-2">
                         <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 text-center text-md-start">
-                    <h6 class="text-white text-uppercase fw-bold mb-4">Jam Operasional</h6>
+                <div class="col-lg-4 col-md-6 col-jam text-md-start">
+                    <h6 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 1px;">Jam Operasional</h6>
                     <ul class="list-unstyled small text-secondary">
-                        <li class="mb-2">Senin - Sabtu: 08:00 - 20:00</li>
-                        <li class="text-danger fw-bold">Minggu: Tutup</li>
+                        <li class="mb-2">Senin - Sabtu:<br><span class="text-light">08:00 - 20:00</span></li>
+                        <li class="text-danger fw-bold mt-2">Minggu: Tutup</li>
                     </ul>
                 </div>
-                <div class="col-lg-4 col-md-6 text-center text-md-start">
-                    <h6 class="text-white text-uppercase fw-bold mb-4">Lokasi</h6>
-                    <p class="small text-secondary"><i class="fas fa-map-marker-alt me-2 text-warning"></i>JL.Raya Batok. Kabupaten Bogor, Kec. Tenjo</p>
+                <div class="col-lg-4 col-md-6 col-lokasi text-md-start">
+                    <h6 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 1px;">Lokasi</h6>
+                    <p class="small text-secondary mb-2" style="line-height: 1.5;">
+                        <i class="fas fa-map-marker-alt me-2 text-warning"></i>JL.Raya Batok. Kabupaten Bogor, Kec. Tenjo
+                    </p>
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-sm btn-outline-warning rounded-pill px-3 btn-lokasi" style="font-size: 0.8rem;">
+                        <i class="fas fa-directions me-1"></i> Lihat Rute Peta
+                    </a>
                 </div>
             </div>
             <div class="border-top border-secondary mt-5 pt-4 text-center">
@@ -243,7 +261,7 @@
         const mKasir = new bootstrap.Modal(document.getElementById('modalKasir'));
         const mNota = new bootstrap.Modal(document.getElementById('modalNota'));
 
-        // PERBAIKAN: Fungsi untuk menutup menu Navbar otomatis setelah klik (untuk HP)
+        // Fungsi untuk menutup menu Navbar otomatis setelah klik (untuk HP)
         const navLinks = document.querySelectorAll('.nav-link');
         const menuToggle = document.getElementById('navbarNav');
         navLinks.forEach((link) => {
